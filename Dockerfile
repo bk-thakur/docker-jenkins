@@ -7,8 +7,8 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm inatll
-COPY ..
+RUN npm install
+COPY . .
 
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
